@@ -1,33 +1,35 @@
-# w
+# a
 
 ## Description
 
-e
+s
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [How to Contribute](#How to Contribute)
+- [Contribution](#Contribution)
 - [License](#license)
 - [Tests](#tests)
 - [questions](#questions)
 
 ## Installation
 
-r
+d
 
 ## Usage
 
-t
+f
 
-## How to Contribute
+## Contribute
 
-t
+d
 
 ## License
 
-Apache
+![Apache badge](https://img.shields.io/badge/License-Apache-blue)
+        
+        Please refer to the LICENSE in the repo
 
 ## Tests
 
@@ -35,4 +37,4 @@ g
 
 ## Questions
 
-d
+h
