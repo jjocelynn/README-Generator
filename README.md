@@ -20,6 +20,8 @@ NA
 ## Usage
 
  In the terminal, enter 'node index.js'. Fill in the prompts provided and get the README.md and License file under the Develop folder.
+ 
+![creating a README file with command line demonstration video](https://drive.google.com/file/d/1ZdChGv_YHp7L2Sb_35wJK2r8Bx7wmpGx/view?usp=share_link)
 
 ## Contribute
 
