@@ -2,8 +2,20 @@ const fs = require("fs");
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  //const license = license.license;
+  if (!license) {
+    return "";
+  } else if (license === 'MIT') {
+    return `![MIT badge](https://img.shields.io/badge/License-MIT-brightgreen)`;
+  } else if (license === "Apache") {
+    return `![Apache badge](https://img.shields.io/badge/License-Apache-blue)`
+  } else if (license === "GNU") {
+    return `![Apache badge](https://img.shields.io/badge/License-GNU-orange)`
+  }
+}
 
+// // TODO: Create a function that returns the license link
+// // If there is no license, return an empty string
+function renderLicenseLink(license) {
   if (!license) {
     return "";
   } else if (license === 'MIT') {
@@ -28,7 +40,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`, (err) => err ? console.log(err) : console.log("Successfully wrote a License!"));
-    return `![MIT badge](https://img.shields.io/badge/License-MIT-brightgreen)`;
+    return `Please refer to the LICENSE in the repo`;
   } else if (license === "Apache") {
     fs.writeFile("license", `Copyright 2023 jjocelynn
 
@@ -43,7 +55,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.`, (err) => err ? console.log(err) : console.log("Successfully wrote a License!"));
-    return `![Apache badge](https://img.shields.io/badge/License-Apache-blue)`
+    return `Please refer to the LICENSE in the repo`
   } else if (license === "GNU") {
     fs.writeFile("license", `Copyright (C)  2023 jjocelynn
     Permission is granted to copy, distribute and/or modify this document
@@ -52,23 +64,15 @@ limitations under the License.`, (err) => err ? console.log(err) : console.log("
     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
     A copy of the license is included in the section entitled "GNU
     Free Documentation License" https://www.gnu.org/licenses/fdl-1.3.html.`, (err) => err ? console.log(err) : console.log("Successfully wrote a License!"));
-    return `![Apache badge](https://img.shields.io/badge/License-GNU-orange)`
+    return `Please refer to the LICENSE in the repo`
   }
 }
 
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) { }
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) { }
-
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(title, description, installation, usage, license, contribute, tests, questions) {
+function generateMarkdown(title, description, installation, usage, license, contribute, tests, github, email) {
   return `# ${title}
 
-## Description
+## Description ${renderLicenseBadge(license)}
 
 ${description}
 
@@ -95,7 +99,7 @@ ${contribute}
 
 ## License
 
-${renderLicenseBadge(license)}
+${renderLicenseLink(license)}
 
 ## Tests
 
@@ -103,7 +107,9 @@ ${tests}
 
 ## Questions
 
-${questions}`;
+Check out my repos here: https://github.com/${github}
+
+Or if you have additional questions, email me at: ${email}`;
 }
 
-module.exports = generateMarkdown();
+module.exports = generateMarkdown;
