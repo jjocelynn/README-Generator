@@ -21,8 +21,6 @@ NA
 
  In the terminal, enter 'node index.js'. Fill in the prompts provided and get the README.md and License file under the Develop folder.
 
- ![creating README through terminal video](./Develop/video/demonstration-video.mp4)
-
 ## Contribute
 
 NA
