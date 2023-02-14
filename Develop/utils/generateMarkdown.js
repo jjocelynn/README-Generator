@@ -1,4 +1,6 @@
 const fs = require("fs");
+const year = new Date().getFullYear();
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -15,13 +17,13 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicenseLink(license, github) {
   if (!license) {
     return "";
   } else if (license === 'MIT') {
     fs.writeFile('License', `MIT License
 
-Copyright (c) 2023 jjocelynn
+Copyright (c) ${year} ${github}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,7 +44,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`, (err) => err ? console.log(err) : console.log("Successfully wrote a License!"));
     return `Please refer to the LICENSE in the repo`;
   } else if (license === "Apache") {
-    fs.writeFile("license", `Copyright 2023 jjocelynn
+    fs.writeFile("license", `Copyright ${year} ${github}
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -57,7 +59,7 @@ See the License for the specific language governing permissions and
 limitations under the License.`, (err) => err ? console.log(err) : console.log("Successfully wrote a License!"));
     return `Please refer to the LICENSE in the repo`
   } else if (license === "GNU") {
-    fs.writeFile("license", `Copyright (C)  2023 jjocelynn
+    fs.writeFile("license", `Copyright (C)  ${year} ${github}
     Permission is granted to copy, distribute and/or modify this document
     under the terms of the GNU Free Documentation License, Version 1.3
     or any later version published by the Free Software Foundation;
@@ -99,7 +101,7 @@ ${contribute}
 
 ## License
 
-${renderLicenseLink(license)}
+${renderLicenseLink(license, github)}
 
 ## Tests
 
@@ -107,7 +109,7 @@ ${tests}
 
 ## Questions
 
-Check out my repos here: https://github.com/${github}
+Check out my GitHub here: https://github.com/${github}
 
 Or if you have additional questions, email me at: ${email}`;
 }
